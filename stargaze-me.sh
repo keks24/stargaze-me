@@ -6,7 +6,6 @@ home_directory="/home/${username}"
 token_directory="${home_directory}/.local/etc/${repository_name}/tokens"
 token_filename_suffix="token"
 profile_username="keks24"
-protocol_type="https"
 repository_urls_file="to_be_starred"
 user_urls_file="to_be_followed"
 declare -a repository_name_array
@@ -15,8 +14,9 @@ declare -a user_name_array
 user_name=
 http_response_code_get=
 http_response_code_put=
+protocol_type="https"
 # github.com
-github_url="https://github.com"
+github_url="${protocol_type}://github.com"
 github_username="${profile_username}"
 github_token_filename="${github_url/https:\/\//}.${token_filename_suffix}"
 github_token=$(< "${token_directory}/${github_token_filename}")
