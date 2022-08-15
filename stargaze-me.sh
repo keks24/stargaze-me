@@ -61,7 +61,7 @@ then
         case "${http_response_code_get}" in
             "204")
                 echo -e "\e[01;33malready starred.\e[0m"
-                http_response_code_get=
+                unset http_response_code_get
                 ;;
 
             # not starred yet.
@@ -74,7 +74,7 @@ then
                 ### 403 forbidden
                 ### 404 resource not found
 
-                http_response_code_get=
+                unset http_response_code_get
                 http_response_code_put=$(/usr/bin/curl \
                     --silent \
                     --show-error \
@@ -88,28 +88,28 @@ then
 
                 case "${http_response_code_put}" in
                     "204")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;32msuccess!\e[0m"
                         continue
                         ;;
 
                     "304")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;33mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
                         ;;
 
                     "401")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Authentication required!\e[0m" >&2
                         ;;
 
                     "403")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Forbidden.\e[0m" >&2
                         ;;
 
                     "404")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Resource not found.\e[0m" >&2
                         ;;
 
@@ -121,17 +121,17 @@ then
 
             "304")
                 echo -e "\e[01;33mHTTP response '${http_response_code_get}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
-                http_response_code_get=
+                unset http_response_code_get
                 ;;
 
             "401")
                 echo -e "\e[01;31mHTTP response '${http_response_code_get}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Authentication required!\e[0m" >&2
-                http_response_code_get=
+                unset http_response_code_get
                 ;;
 
             "403")
                 echo -e "\e[01;31mHTTP response '${http_response_code_get}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Forbidden.\e[0m" >&2
-                http_response_code_get=
+                unset http_response_code_get
                 ;;
 
             *)
@@ -184,7 +184,7 @@ then
         case "${http_response_code_get}" in
             "204")
                 echo -e "\e[01;33malready following.\e[0m"
-                http_response_code_get=
+                unset http_response_code_get
                 ;;
 
             # not followed yet.
@@ -197,7 +197,7 @@ then
                 ### 403 forbidden
                 ### 404 resource not found
 
-                http_response_code_get=
+                unset http_response_code_get
                 http_response_code_put=$(/usr/bin/curl \
                     --silent \
                     --show-error \
@@ -211,28 +211,28 @@ then
 
                 case "${http_response_code_put}" in
                     "204")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;32msuccess!\e[0m"
                         continue
                         ;;
 
                     "304")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;33mHTTP response '${http_response_code_put}', user '${github_url}/${user_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
                         ;;
 
                     "401")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', user '${github_url}/${user_name}', profile username '${profile_username}': Authentication required!\e[0m" >&2
                         ;;
 
                     "403")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', user '${github_url}/${user_name}', profile username '${profile_username}': Forbidden.\e[0m" >&2
                         ;;
 
                     "404")
-                        http_response_code_put=
+                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', user '${github_url}/${user_name}', profile username '${profile_username}': Resource not found.\e[0m" >&2
                         ;;
 
@@ -244,17 +244,17 @@ then
 
             "304")
                 echo -e "\e[01;33mHTTP response '${http_response_code_get}', user '${github_url}/${user_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
-                http_response_code_get=
+                unset http_response_code_get
                 ;;
 
             "401")
                 echo -e "\e[01;31mHTTP response '${http_response_code_get}', user '${github_url}/${user_name}', profile username '${profile_username}': Authentication required!\e[0m" >&2
-                http_response_code_get=
+                unset http_response_code_get
                 ;;
 
             "403")
                 echo -e "\e[01;31mHTTP response '${http_response_code_get}', user '${github_url}/${user_name}', profile username '${profile_username}': Forbidden.\e[0m" >&2
-                http_response_code_get=
+                unset http_response_code_get
                 ;;
 
             *)
