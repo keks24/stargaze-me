@@ -151,11 +151,10 @@ then
         echo -e "\e[01;33mThe file '${user_urls_file}' is empty. Nothing to do...\e[0m" >&2
     fi
 
-    # remove "https://github.com/" from each line. using a "look-behind" regular
-    # expression is very inefficient.
-    # the trailing slash is important!
+    # filter out the username
     # for example: keep "kgsws" from "https://github.com/kgsws"
-    user_name_array=($(/bin/sed "s;${github_url}/;;g" "${user_urls_file}"))
+    # using a "look-behind" "(?<=[...])" regular expression is very inefficient.
+    user_name_array=($(/bin/grep --perl-regexp --only-matching "(?<=\.com\/)[a-zA-Z0-9_.-]+" "${user_urls_file}"))
 
     # check, if the user is followed already.
     ## https://docs.github.com/en/rest/users/followers#follow-a-user
