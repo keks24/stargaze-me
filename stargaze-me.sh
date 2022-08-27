@@ -26,7 +26,7 @@ if [[ -f "${repository_urls_file}" ]]
 then
     if [[ $(< "${repository_urls_file}") == "" ]]
     then
-        echo -e "\e[01;31mThe file '${repository_urls_file}' is empty. Nothing to do...\e[0m" >&2
+        echo -e "\e[01;33mThe file '${repository_urls_file}' is empty. Nothing to do...\e[0m" >&2
     fi
 
     # filter out username and repository name from each line.
@@ -148,7 +148,7 @@ if [[ -f "${user_urls_file}" ]]
 then
     if [[ $(< "${user_urls_file}") == "" ]]
     then
-        echo -e "\e[01;31mThe file '${user_urls_file}' is empty. Nothing to do...\e[0m" >&2
+        echo -e "\e[01;33mThe file '${user_urls_file}' is empty. Nothing to do...\e[0m" >&2
     fi
 
     # remove "https://github.com/" from each line. using a "look-behind" regular
