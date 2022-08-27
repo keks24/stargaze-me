@@ -94,7 +94,7 @@ then
 
                     "304")
                         unset http_response_code_put
-                        echo -e "\e[01;33mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
+                        echo -e "\e[01;31mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
                         ;;
 
                     "401")
@@ -119,7 +119,7 @@ then
                 ;;
 
             "304")
-                echo -e "\e[01;33mHTTP response '${http_response_code_get}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
+                echo -e "\e[01;31mHTTP response '${http_response_code_get}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
                 unset http_response_code_get
                 ;;
 
