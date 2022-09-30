@@ -1,8 +1,7 @@
 #!/bin/bash
 # global
 repository_name="stargaze-me"
-username="ramon"
-home_directory="/home/${username}"
+home_directory="${HOME}"
 token_directory="${home_directory}/.local/etc/${repository_name}/tokens"
 token_filename_suffix="token"
 profile_username="keks24"
