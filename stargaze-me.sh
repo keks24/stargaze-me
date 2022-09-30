@@ -5,8 +5,8 @@ home_directory="${HOME}"
 token_directory="${home_directory}/.local/etc/${repository_name}/tokens"
 token_filename_suffix="token"
 profile_username="keks24"
-repository_urls_file="to_be_starred"
-user_urls_file="to_be_followed"
+repository_urls_file="./to_be_starred"
+user_urls_file="./to_be_followed"
 declare -a repository_name_array
 repository_name_array=
 declare -a user_name_array
@@ -31,7 +31,7 @@ then
     # filter out username and repository name from each line.
     # for example: filter "kgsws/doom-in-doom" from "https://github.com/kgsws/doom-in-doom"
     # using a "look-behind" "(?<=[...])" regular expression is very inefficient.
-    repository_name_array=($(/bin/grep --perl-regexp --only-matching "(?<=\.com\/)[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+" "${repository_urls_file}"))
+    repository_name_array=($(/bin/grep --perl-regexp --only-matching "(?<=\.com\/)[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+" "${repository_urls_file/\.\//}"))
 
     # check, if the repository is starred already.
     ## https://docs.github.com/en/rest/activity/starring#check-if-a-repository-is-starred-by-the-authenticated-user
@@ -153,7 +153,7 @@ then
     # filter out the username
     # for example: keep "kgsws" from "https://github.com/kgsws"
     # using a "look-behind" "(?<=[...])" regular expression is very inefficient.
-    user_name_array=($(/bin/grep --perl-regexp --only-matching "(?<=\.com\/)[a-zA-Z0-9_.-]+" "${user_urls_file}"))
+    user_name_array=($(/bin/grep --perl-regexp --only-matching "(?<=\.com\/)[a-zA-Z0-9_.-]+" "${user_urls_file/\.\//}"))
 
     # check, if the user is followed already.
     ## https://docs.github.com/en/rest/users/followers#follow-a-user
