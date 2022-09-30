@@ -138,7 +138,7 @@ then
         esac
     done
 else
-    echo -e "\e[01;31mCould not find file: '${repository_urls_file}'."
+    echo -e "\e[01;31mCould not find file: '${repository_urls_file}' or is not a file."
     exit 1
 fi
 
@@ -260,6 +260,6 @@ then
         esac
     done
 else
-    echo -e "\e[01;31mCould not find file: '${user_urls_file}'."
+    echo -e "\e[01;31mCould not find file: '${user_urls_file}' or is not a file."
     exit 1
 fi
