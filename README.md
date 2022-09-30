@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="feelsgoodman.png" src="https://codeberg.org/keks24/stargaze-me/src/branch/master/images/feelsgoodman.png" width="50%"/>
+    <img alt="feelsgoodman.png" src="https://codeberg.org/keks24/stargaze-me/media/branch/master/images/feelsgoodman.png" width="50%"/>
 </p>
 <h1 align="center">stargaze-me</h1>
 
