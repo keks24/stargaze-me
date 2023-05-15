@@ -31,7 +31,7 @@ then
     # filter out username and repository name from each line.
     # for example: filter "kgsws/doom-in-doom" from "https://github.com/kgsws/doom-in-doom"
     # using a "look-behind" "(?<=[...])" regular expression is very inefficient.
-    repository_name_array=($(/bin/grep --perl-regexp --only-matching "(?<=\.com\/)[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+[^.git]" "${repository_urls_file/\.\//}"))
+    repository_name_array=($(/bin/grep --perl-regexp --only-matching "(?<=\.com\/)[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+" "${repository_urls_file/\.\//}"))
 
     # check, if the repository is starred already.
     ## https://docs.github.com/en/rest/activity/starring#check-if-a-repository-is-starred-by-the-authenticated-user
