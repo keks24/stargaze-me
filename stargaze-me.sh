@@ -20,6 +20,14 @@ github_username="${profile_username}"
 github_token_filename="${github_url/https:\/\//}.${token_filename_suffix}"
 github_token=$(< "${token_directory}/${github_token_filename}")
 
+# TODO: the api calls were changed. example, if a repository is starred:
+#       curl -L \
+#           -H "Accept: application/vnd.github+json" \
+#           -H "Authorization: Bearer <YOUR-TOKEN>" \
+#           -H "X-GitHub-Api-Version: 2022-11-28" \
+#           https://api.github.com/user/starred/OWNER/REPO
+#                                               ^^^^^^^^^^
+
 # star a repository
 if [[ -f "${repository_urls_file}" ]]
 then
@@ -92,23 +100,23 @@ then
                         ;;
 
                     "304")
-                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
+                        unset http_response_code_put
                         ;;
 
                     "401")
-                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Authentication required!\e[0m" >&2
+                        unset http_response_code_put
                         ;;
 
                     "403")
-                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Forbidden.\e[0m" >&2
+                        unset http_response_code_put
                         ;;
 
                     "404")
-                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', repository '${github_url}/${repository_name}', profile username '${profile_username}': Resource not found.\e[0m" >&2
+                        unset http_response_code_put
                         ;;
 
                     *)
@@ -214,23 +222,23 @@ then
                         ;;
 
                     "304")
-                        unset http_response_code_put
                         echo -e "\e[01;33mHTTP response '${http_response_code_put}', user '${github_url}/${user_name}', profile username '${profile_username}': Not modified.\e[0m" >&2
+                        unset http_response_code_put
                         ;;
 
                     "401")
-                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', user '${github_url}/${user_name}', profile username '${profile_username}': Authentication required!\e[0m" >&2
+                        unset http_response_code_put
                         ;;
 
                     "403")
-                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', user '${github_url}/${user_name}', profile username '${profile_username}': Forbidden.\e[0m" >&2
+                        unset http_response_code_put
                         ;;
 
                     "404")
-                        unset http_response_code_put
                         echo -e "\e[01;31mHTTP response '${http_response_code_put}', user '${github_url}/${user_name}', profile username '${profile_username}': Resource not found.\e[0m" >&2
+                        unset http_response_code_put
                         ;;
 
                     *)
