@@ -5,8 +5,8 @@ home_directory="${HOME}"
 token_directory="${home_directory}/.local/etc/${repository_name}/tokens"
 token_filename_suffix="token"
 profile_username="keks24"
-repository_urls_file="./to_be_starred"
-user_urls_file="./to_be_followed"
+repository_urls_file="${home_directory}/.local/etc/${repository_name}/to_be_starred"
+user_urls_file="${home_directory}/.local/etc/${repository_name}/to_be_followed"
 declare -a repository_name_array
 repository_name_array=
 declare -a user_name_array
